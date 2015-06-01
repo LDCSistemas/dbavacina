@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="SistemaControleVacinacaoWebPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>br.com.Model.Cidade</class>
+    <class>br.com.Model.Usuario</class>
+    <class>br.com.Model.Funcionario</class>
+    <class>br.com.Model.Vacina</class>
+    <class>br.com.Model.Fabricante</class>
+    <class>br.com.Model.Fornecedor</class>
+    <class>br.com.Model.Pais</class>
+    <class>br.com.Model.Pessoa</class>
+    <class>br.com.Model.Atendimento</class>
+    <class>br.com.Model.Escolaridade</class>
+    <class>br.com.Model.Logradouro</class>
+    <class>br.com.Model.Estado</class>
+    <class>br.com.Model.Bairro</class>
+    <class>br.com.Model.UnidadeSaude</class>
+    <class>br.com.Model.Profissao</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/dbavacina"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="15421542a@"/>
+    </properties>
+  </persistence-unit>
+</persistence>
