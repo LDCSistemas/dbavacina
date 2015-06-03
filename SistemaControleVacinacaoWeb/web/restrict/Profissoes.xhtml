@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="./../resources/HomePage.xhtml">
+        <ui:define name="metadata">
+            <f:metadata>
+                <f:event listener="#{profissaoBean.carregarCadastro()}" type="preRenderView"/>
+            </f:metadata>
+
+        </ui:define>
+        <ui:define name="Conteúdo da Página">
+            <h:form>
+                <p:panel id="panelBotoes">
+
+                    <p:commandButton value="Novo" ajax="false" style="margin-right: 0.3cm">  
+                        <p:graphicImage value="/icones/PNG-32/Add.png"/> 
+                    </p:commandButton>
+
+                    <p:commandButton value="Pesquisar" ajax="false" style="margin-right: 0.3cm" action="ConsultaProfissoes.xhtml?faces-redirect=true" immediate="true">  
+                        <p:graphicImage value="/icones/PNG-32/Search.png"/>  
+                    </p:commandButton>  
+
+                    <p:commandButton value="Alterar" ajax="false" style="margin-right: 0.3cm" actionListener="#{profissaoBean.Editar}">  
+                        <p:graphicImage value="/icones/PNG-32/Modify.png"/>    
+                    </p:commandButton>
+
+                    <p:commandButton value="Salvar" ajax="false"  actionListener="#{profissaoBean.Salvar}" style="margin-right: 0.3cm">  
+                        <p:graphicImage value="/icones/PNG-32/Save.png"/>  
+                    </p:commandButton>
+
+                    <p:commandButton value="Excluir" ajax="false"  actionListener="#{profissaoBean.Excluir}" style="margin-right: 0.3cm" >  
+                        <p:graphicImage value="/icones/PNG-32/Delete.png"/>  
+                    </p:commandButton>
+
+                    <p:commandButton value="Sair" ajax="false" action="Home" immediate="true" style="margin-right: 0.3cm">  
+                        <p:graphicImage value="/icones/PNG-32/Exit.png"/>  
+                    </p:commandButton>
+                </p:panel>
+
+
+                <p:growl id="growl" showDetail="true" sticky="true" />  
+                <p:tab id="identificacao" title="Identificação">
+
+                    <center>
+                        <h3>Cadastro de Profissao </h3>
+                    </center>
+                    
+                    <p:panel header= "Dados da Profissão" >
+
+                        <h:panelGrid columns="2" columnClasses="label, value">
+                            <h:outputText value="Código da Profissão *" />
+                            <p:inputText readonly="false"  label="Código do Profissões" value="#{profissaoBean.profissaoCadastro.codigoProfissao}" />
+
+                            <h:outputText value="Descrição da Profissão*"  />
+                            <p:inputText  label="Nome do Profissões" value="#{profissaoBean.profissaoCadastro.nomeProfissao}">
+                            <f:validateBean/>
+                            </p:inputText>
+                            
+                        </h:panelGrid>
+
+                    </p:panel>
+                </p:tab>
+            </h:form>
+        </ui:define>   
+
+
+    </ui:composition>
+
+
+</html>
+
+
+

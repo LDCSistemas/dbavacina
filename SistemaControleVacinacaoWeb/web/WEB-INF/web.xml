@@ -22,7 +22,7 @@
     </session-config>
     
     <welcome-file-list>
-        <welcome-file>Login.jsf</welcome-file>
+        <welcome-file>restrict/Home.jsf</welcome-file>
     </welcome-file-list>
     
     

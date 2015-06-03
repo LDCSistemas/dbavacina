@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Sistema de controle de vacinação Web</title>
+<link rel="stylesheet" type="text/css" href="utilitarios/estilos.css"/>
+        
+    </h:head>
+
+    <h:body>
+
+
+        <p:layout fullPage="true">
+
+
+            <p:layoutUnit position="center">
+                <h:form>
+                    <p:growl id="growl" showDetail="true" sticky="true" />  
+
+                    <p:tab id="identificacao" title="Identificação">
+
+                        <center>
+
+                            <center style="margin-top: 1.5cm">
+                                <p:graphicImage url="imagens/zegotinha3.png" width="200" height="200px" style="margin-left: 3cm"/>
+                                <H2> Sistema de Controle de Vacinação WEB </H2>
+                            </center>
+                            <p:panel header= "Identifique-se" style="height: 20px;width: 300px;margin-top: 2cm">
+
+
+                                <h:panelGrid columns="2" columnClasses="label, value">
+
+                                    <h:outputText value="Usuário *" />
+                                    <p:inputText  required="true" label="Usuario" />
+
+                                    <h:outputText value="Senha *" />
+                                    <p:password  required="true" label="Lastname"/>
+
+                                    <p:commandButton value="Confirmar" action="Home" ajax="false" style="margin-top: 0.5cm"/>
+                                    <p:commandButton value="Esqueci a minha senha" ajax="false" style="margin-top: 0.5cm"/>
+
+
+                                </h:panelGrid>
+                            </p:panel>
+                        </center>
+                    </p:tab>
+                </h:form>
+
+            </p:layoutUnit>
+
+        </p:layout>
+
+    </h:body>
+</html>
+
+
+

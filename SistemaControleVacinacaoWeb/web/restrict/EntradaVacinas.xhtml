@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:composition template="./../resources/HomePage.xhtml">
+
+        <ui:define name="Conteúdo da Página">
+                 <p:panel id="panelBotoes">
+
+                        <p:commandButton value="Novo" ajax="false" style="margin-right: 0.3cm">  
+                            <p:graphicImage value="/icones/PNG-32/Add.png"/>  
+                        </p:commandButton>
+
+                        <p:commandButton value="Pesquisar" ajax="false" style="margin-right: 0.3cm">  
+                            <p:graphicImage value="/icones/PNG-32/Search.png"/>  
+                        </p:commandButton>  
+
+                        <p:commandButton value="Alterar" ajax="false" style="margin-right: 0.3cm">  
+                            <p:graphicImage value="/icones/PNG-32/Modify.png"/>  
+                        </p:commandButton>
+
+                        <p:commandButton value="Salvar" ajax="false"  actionListener="" style="margin-right: 0.3cm">  
+                            <p:graphicImage value="/icones/PNG-32/Save.png"/>  
+                        </p:commandButton>
+
+                        <p:commandButton value="Excluir" ajax="false" style="margin-right: 0.3cm">  
+                            <p:graphicImage value="/icones/PNG-32/Delete.png"/>  
+                        </p:commandButton>
+
+                        <p:commandButton value="Sair" ajax="false" action="Home" style="margin-right: 0.3cm">  
+                            <p:graphicImage value="/icones/PNG-32/Exit.png"/>  
+                        </p:commandButton>
+                    </p:panel>
+
+            <h:form>
+                <p:growl id="growl" showDetail="true" sticky="true" />  
+
+                <p:tab id="identificacao" title="Identificação">
+
+                    <p:panel header= "Entrada de Vacinas">
+                        <p:messages />
+
+                        <h:panelGrid columns="2" columnClasses="label, value">
+
+                            <h:outputText value="Código da Movimentação *" />
+                            <p:inputText  required="true" label="Código da Movimentação" />
+
+                            <h:outputText value="Data de Entrada *" />
+                            <p:inputMask  mask="99/99/9999" title="Data de Entrada" />
+
+                            <h:outputText value="Código da Vacina *" />
+                            <p:inputText required="true" label="Código da Vacina"/>
+
+                            <h:outputText value="Nome da Vacina *" />
+                            <p:inputText required="true" label="Nome da Vacina"/>
+
+                            <h:outputText value="Descrição da Vacina *" />
+                            <p:inputText required="true" label="Descrição da Vacina"/>
+
+                            <h:outputText value="Lote da Vacina *" />
+                            <p:inputText required="true" label="Lote da Vacina"/>
+
+                            <h:outputText value="Data de Validade *" />
+                            <p:inputMask  mask="99/99/9999" title="Data de Validade" />
+
+                            <h:outputText value="Qtde de Entrada *" />
+                            <p:inputText required="true" label="Qtde de Entrada"/>
+
+                            <h:outputText value="Código do Fabricante *" />
+                            <p:inputText required="true" label="Código do Fabricante"/>
+
+                            <h:outputText value="Descrição do Fabricante *" />
+                            <p:inputText required="true" label="Descrição do Fabricante"/>
+
+                            <h:outputText value="Código do Fornecedor *" />
+                            <p:inputText required="true" label="Descrição do Fornecedor"/>
+
+                        </h:panelGrid>
+
+
+                    </p:panel>
+
+                </p:tab>
+            </h:form>
+        </ui:define>           
+
+
+
+    </ui:composition>
+
+
+</html>
+
+
+

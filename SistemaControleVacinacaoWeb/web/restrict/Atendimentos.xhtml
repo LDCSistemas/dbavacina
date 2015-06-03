@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:composition template="./../resources/HomePage.xhtml">
+
+        <ui:define name="Conteúdo da Página">
+            <h:form>
+                <p:growl id="growl" showDetail="true" sticky="true" />  
+                <p:tab id="identificacao" title="Identificação">
+
+                    <p:panel id="panelBotoes">
+
+                        <p:commandButton value="Novo" ajax="false" style="margin-right: 0.3cm">  
+                            <p:graphicImage value="/icones/PNG-32/Add.png"/>  
+                        </p:commandButton>
+
+                        <p:commandButton value="Pesquisar" ajax="false" style="margin-right: 0.3cm">  
+                            <p:graphicImage value="/icones/PNG-32/Search.png"/>  
+                        </p:commandButton>  
+
+                        <p:commandButton value="Alterar" ajax="false" style="margin-right: 0.3cm">  
+                            <p:graphicImage value="/icones/PNG-32/Modify.png"/>  
+                        </p:commandButton>
+
+                        <p:commandButton value="Salvar" ajax="false"   style="margin-right: 0.3cm">  
+                            <p:graphicImage value="/icones/PNG-32/Save.png"/>  
+                        </p:commandButton>
+
+                        <p:commandButton value="Excluir" ajax="false" style="margin-right: 0.3cm">  
+                            <p:graphicImage value="/icones/PNG-32/Delete.png"/>  
+                        </p:commandButton>
+
+                        <p:commandButton value="Sair" ajax="false" action="Home" style="margin-right: 0.3cm" immediate="true">  
+                            <p:graphicImage value="/icones/PNG-32/Exit.png"/>  
+                        </p:commandButton>
+                    </p:panel>
+
+                    <center>
+
+                        <h3 style="margin-bottom: 0.5cm">Cadastro de Atendmentos </h3>
+
+                    </center>
+
+                    <p:messages />                       
+
+                    <p:panel header="Dados do Atendimento">
+                        <p:panelGrid columns="4">
+                            <h:outputText value="Código do Atendimento:" />
+                            <p:inputText  required="true" label="Código do Atendimento" value="#{atendimentoBean.atendimentoCadastro.codigoAtendimento}"/>
+
+                            <h:outputText value="Dt Atendimento:" />
+                            <p:inputMask  mask="99/99/9999" title="Dt Atendimento" value="#{pessoaBean.dataAtual}" readonly="true"/>
+                        </p:panelGrid>
+                    </p:panel>               
+
+                    <p:panel header="Dados da Vacina a Administrar">
+                        <p:panelGrid columns="6">
+                            <h:outputText value="Código da Vacina:" />
+                            <p:inputText  required="true" label="Código da Vacina" />
+
+                            <h:outputText value="Descrição da Vacina:" />
+                            <p:inputText required="false" label="Descrição da Vacina"/>
+
+                            <h:outputText value="Lote da Vacina:" />
+                            <p:inputText  required="true" label="Lote da Vacina" />
+                        </p:panelGrid>
+                    </p:panel>
+
+                    <p:panel header="Observação do atendimento">
+                        <h:panelGrid  columns="4" columnClasses="label, value">
+                            <h:outputText value="" />
+                            <p:inputTextarea title="Observações" rows="10" cols="82"  required="true" label="Observações:" />
+                        </h:panelGrid>
+                    </p:panel>
+
+                    <p:panel header="Local de Aplicação da Vacina">
+                        <p:panelGrid columns="2">
+
+                            <h:outputText value="Código da Unidade de Saúde:" />
+                            <p:inputText required="true" label="Código da Unidade de Saúde"/>
+
+                            <h:outputText value="Descrição da Unidade de Saúde:" />
+                            <p:inputText required="true" label="Descrição da Unidade de Saúde"/>
+                        </p:panelGrid>
+                    </p:panel>
+
+                </p:tab>
+
+
+            </h:form> 
+        </ui:define>           
+
+    </ui:composition>
+
+
+</html>
+
+
+

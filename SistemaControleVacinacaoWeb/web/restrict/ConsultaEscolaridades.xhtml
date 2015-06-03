@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="./../resources/HomePage.xhtml">
+        <ui:define name="metadata">
+            <f:metadata>
+                <f:event listener="#{escolaridadeBean.carregarEscolaridade()}" type="preRenderView"/>
+            </f:metadata>
+
+        </ui:define>
+        <ui:define name="Conteúdo da Página">
+
+
+            <h:form>
+                <p:panel id="panelBotoes">
+
+                    <p:commandButton value="Novo" ajax="false" style="margin-right: 0.3cm" action="Escolaridades.xhtml?faces-redirect=true">  
+                        <p:graphicImage value="/icones/PNG-32/Add.png"/>  
+                    </p:commandButton>
+
+                    <p:commandButton value="Pesquisar" ajax="false" style="margin-right: 0.3cm">  
+                        <p:graphicImage value="/icones/PNG-32/Search.png"/>  
+                    </p:commandButton>  
+
+                    <p:commandButton value="Alterar" ajax="false" style="margin-right: 0.3cm">  
+                        <p:graphicImage value="/icones/PNG-32/Modify.png"/>  
+                    </p:commandButton>
+
+                    <p:commandButton value="Salvar" ajax="false"  actionListener="#{escolaridadeBean.Salvar}" style="margin-right: 0.3cm">  
+                        <p:graphicImage value="/icones/PNG-32/Save.png"/>  
+                    </p:commandButton>
+
+                    <p:commandButton value="Excluir" ajax="false" style="margin-right: 0.3cm">  
+                        <p:graphicImage value="/icones/PNG-32/Delete.png"/>  
+                    </p:commandButton>
+
+                    <p:commandButton value="Sair" ajax="false" action="Home" style="margin-right: 0.3cm">  
+                        <p:graphicImage value="/icones/PNG-32/Exit.png"/>  
+                    </p:commandButton>
+                </p:panel>
+
+
+                <p:growl id="growl" showDetail="true" sticky="true" />  
+
+                <p:tab id="identificacao" title="Identificação">
+
+                    <center>
+                        <h3>Consulta de Escolaridades </h3>
+                    </center>
+
+                    <p:dataTable emptyMessage="Nenhum Registro Encontrado"
+                                 value="#{escolaridadeBean.listaEscolaridades}"
+                                 filteredValue="#{escolaridadeBean.listaEscolaridadesFiltrados}"
+                                 var="escolaridadeCursor"
+                                 rows="8"
+                                 paginator="true">
+                        <p:column headerText="Código">
+                            <h:outputText value="#{escolaridadeCursor.codigoEscolaridade}"/>
+                        </p:column>
+                        <p:column headerText="Descrição" filterBy="#{escolaridadeCursor.descricaoEscolaridade}"
+                                  sortBy="#{escolaridadeCursor.descricaoEscolaridade}">
+                            <h:outputText value="#{escolaridadeCursor.descricaoEscolaridade}"/> 
+                        </p:column>
+                        <p:column headerText="Opções">
+                             <p:button value="Alterar"  style="margin-right: 0.3cm" outcome="Escolaridades.xhtml?faces-redirect=true">  
+                                <p:graphicImage value="/icones/PNG-32/Modify.png"/> 
+                                <f:param  name="fabCodigo" value="#{escolaridadeCursor.codigoEscolaridade}"/>
+                                <f:param  name="fabAcaoBotao" value="Alterar"/>
+                            </p:button>
+                            <p:button value="Excluir"  style="margin-right: 0.3cm" outcome="Escolaridades.xhtml?faces-redirect=true">  
+                                <p:graphicImage value="/icones/PNG-32/Delete.png"/>  
+                                <f:param name="fabCodigo" value="#{escolaridadeCursor.codigoEscolaridade}"/>
+                                <f:param  name="fabAcaoBotao" value="Excluir"/>
+                            </p:button>
+                        </p:column>
+                    </p:dataTable>
+
+                </p:tab>
+
+            </h:form>
+        </ui:define>   
+
+
+    </ui:composition>
+
+
+</html>
+
+
+

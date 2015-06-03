@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:composition template="./../resources/HomePage.xhtml">
+      <f:metadata>
+          <f:event listener="#{funcionarioBean.carregarCadastro()}" type="preRenderView"/>
+            </f:metadata>
+
+
+        <ui:define name="Conteúdo da Página">
+            <h:form>
+                <p:tab id="identificacao" title="Identificação">
+
+                    <p:panel id="panelBotoes">
+
+                        <p:commandButton value="Novo" ajax="false" style="margin-right: 0.3cm">  
+                            <p:graphicImage value="/icones/PNG-32/Add.png"/>  
+                        </p:commandButton>
+
+                        <p:commandButton value="Pesquisar" ajax="false" style="margin-right: 0.3cm" action="ConsultaFuncionarios.xhtml?faces-redirect=true" immediate="true">  
+                            <p:graphicImage value="/icones/PNG-32/Search.png"/>  
+                        </p:commandButton>  
+
+                        <p:commandButton value="Alterar" ajax="false" style="margin-right: 0.3cm">  
+                            <p:graphicImage value="/icones/PNG-32/Modify.png"/>  
+                        </p:commandButton>
+
+                        <p:commandButton value="Salvar" ajax="false"  actionListener="#{funcionarioBean.Salvar}" style="margin-right: 0.3cm">  
+                            <p:graphicImage value="/icones/PNG-32/Save.png"/>  
+                        </p:commandButton>
+
+                        <p:commandButton value="Excluir" ajax="false" style="margin-right: 0.3cm">  
+                            <p:graphicImage value="/icones/PNG-32/Delete.png"/>  
+                        </p:commandButton>
+
+                        <p:commandButton value="Sair" ajax="false"  immediate="true" action="Home?faces-redirect=true" style="margin-right: 0.3cm">  
+                            <p:graphicImage value="/icones/PNG-32/Exit.png"/>  
+                        </p:commandButton>
+                    </p:panel>
+
+                    <center>
+                        <h3 style="margin-bottom: 0.5cm">Cadastro de Funcionários</h3>
+                    </center>
+
+                    <p:panel header= "Identificação" style="margin-top: 0.5cm">
+
+
+                        <p:panelGrid id="Identificação" columns="8" columnClasses="label, value">
+
+                            <p:outputLabel value="Código do Funcionário:" />
+                            <p:inputText  label="Código do Funcionário" value="#{funcionarioBean.funcionarioCadastro.codigoFuncionario}" readonly="true"/>
+
+                            <p:outputLabel value="Data do Cadastro"/>
+                            <p:inputText title="Data do Cadastro" value="#{funcionarioBean.dataAtual}" size="20" >
+                                <f:convertDateTime pattern="dd/mm/yyyy"/>
+                            </p:inputText>
+
+                            <p:outputLabel value="Nome Completo*" />
+                            <p:inputText  label="Nome Completo" size="50" value="#{funcionarioBean.funcionarioCadastro.nome}">
+                                <f:validateBean/>
+                            </p:inputText>
+
+                            <p:outputLabel value="Data de Nascimento *" />
+                            <p:inputMask  mask="99/99/9999" title="Data de Nascimento" value="#{funcionarioBean.funcionarioCadastro.dataNascimento}" >
+                                <f:convertDateTime pattern="dd/mm/yyyy"/>
+                            </p:inputMask>
+
+                            <p:outputLabel for="Sexo" value="Sexo" />
+
+                            <p:selectOneMenu id="Sexo" style="width:125px">
+                                <f:selectItem itemLabel="Masculino" itemValue="Masculino" />
+                                <f:selectItem itemLabel="Feminino" itemValue="Feminino" />                                
+                            </p:selectOneMenu>                         
+
+                            <p:outputLabel for="Cor" value="Cor" />
+
+                            <p:selectOneMenu id="Cor" style="width:125px ">
+                                <f:selectItem itemLabel="Negro" itemValue="Negro" />
+                                <f:selectItem itemLabel="Branco" itemValue="Branco"  />
+                                <f:selectItem itemLabel="Pardo" itemValue="Pardo"  />
+                                <f:selectItem itemLabel="Indígena" itemValue="Indígena"  />
+                                <f:selectItem itemLabel="Amarela" itemValue="Amarela"  />
+                                <f:selectItem itemLabel="Sem Informação" itemValue="Sem Informação"  />
+                            </p:selectOneMenu>
+                            <p:outputLabel value="Naturalidade:" /> 
+
+                            <p:selectOneMenu id="Naturalidade" converter="cidadeConverter" filter="true" >
+                                <f:selectItem itemLabel="Selecione uma Cidade"  />
+                                <f:selectItems value="#{funcionarioBean.listaCidades}" var="cidade" itemValue="#{cidade}" itemLabel="#{cidade.nomeCidade}"/>                                
+                            </p:selectOneMenu> 
+
+
+                            <p:outputLabel value="Nome da Mãe *" />
+                            <p:inputText   label="Nome da Mãe" value="#{funcionarioBean.funcionarioCadastro.nomeMae}" size="50"/>
+
+                            <p:outputLabel value="Nome do Pai *" />
+                            <p:inputText   label="Nome do Pai" value="#{funcionarioBean.funcionarioCadastro.nomePai}" size="50"/>
+
+
+                        </p:panelGrid>
+                    </p:panel> 
+
+
+                    <p:panel header= "Documentos" style="margin-top: 0.5cm">
+
+
+                        <p:panelGrid id="Documentos" columns="12" columnClasses="label, value">
+
+
+                            <p:outputLabel value="Identidade *" />
+                            <p:inputText  label="Identidade" value="#{funcionarioBean.funcionarioCadastro.identidade}"/>
+
+                            <p:outputLabel value="Orgão Emissor *" />
+                            <p:inputText  label="Orgão Emissor" value="#{funcionarioBean.funcionarioCadastro.orgaoEmissor}"/>
+
+                            <p:outputLabel value="Data da Expedição *" />
+                            <p:inputMask  mask="99/99/9999" label="Data da Expedição" value="#{ funcionarioBean.funcionarioCadastro.dataExpedicao}">
+                                <f:convertDateTime pattern="dd/mm/yyyy"/>
+                            </p:inputMask>
+
+                            <p:outputLabel value="CPF *" />
+                            <p:inputMask  mask="999.999.999-99" title="CPF" value="#{funcionarioBean.funcionarioCadastro.cpf}">
+                                <f:validateBean/>
+                            </p:inputMask>
+
+                            <p:outputLabel value="Estado Civíl *" /> 
+
+                            <p:selectOneMenu id="EstadoCivil" >
+                                <f:selectItem itemLabel="Solteiro(a)" itemValue="Solteiro(a" />
+                                <f:selectItem itemLabel="Casado(a)" itemValue="Casado(a)"  />
+                                <f:selectItem itemLabel="Divorciado(a)" itemValue="Divorciado(a)"/>
+                            </p:selectOneMenu>
+
+                            <p:outputLabel value="Nome do Cônjuge *" />
+                            <p:inputText   label="Nome do Cônjuge *" value="#{funcionarioBean.funcionarioCadastro.nomeConjuge}"/>
+
+                        </p:panelGrid>
+                    </p:panel>
+
+
+                    <p:panel header="Contato">
+
+
+                        <p:panelGrid id="Contato" columns="12" columnClasses="label, value">
+
+                            <p:outputLabel value="CEP *" />
+                            <p:inputMask  mask="99-999-999" title="CEP" value="#{funcionarioBean.funcionarioCadastro.cep}"/>
+
+                            <p:outputLabel value="Descrição Logradouro *" />
+                            <p:inputText  label="Descrição Logradouro" value="#{funcionarioBean.funcionarioCadastro.logradouro}"/>
+
+                            <p:outputLabel value="Complemento *" />
+                            <p:inputText  label="Complemento" value="#{funcionarioBean.funcionarioCadastro.complemento}"/>
+
+                            <p:outputLabel value="Código Bairro *" />
+                            <p:inputText  label="Código Bairro"/>
+
+                            <p:outputLabel value="Descrição Bairro *" />
+                            <p:inputText  label="Descrição Bairro" />
+
+                            <p:outputLabel value="E-mail *" />
+                            <p:inputText  label="E-mail" value="#{funcionarioBean.funcionarioCadastro.email}"/>
+
+
+                        </p:panelGrid>
+
+                    </p:panel>
+
+                    <p:panel header="Perfil">
+
+
+                        <p:panelGrid id="Perfil" columns="8" columnClasses="label, value">
+                            <p:outputLabel value="Código do Conselho *" />
+                            <p:inputText  label="Código do Conselho" value="#{funcionarioBean.funcionarioCadastro.codigoConselho}"/>
+                            <p:outputLabel value="Profissão:" /> 
+
+                            <p:selectOneMenu id="Profissoes" converter="funcionarioConverter" filter="true">
+                                <f:selectItem itemLabel="Selecione uma profissão" itemValue="" />
+                                <f:selectItems value="#{funcionarioBean.listaProfissoes}" var="profissao" itemValue="#{profissao}" itemLabel="#{profissao.nomeProfissao}"/>                                
+                            </p:selectOneMenu>    
+
+                            <p:outputLabel value="Escolaridade" /> 
+
+                            <p:selectOneMenu id="Escolaridade" converter="escolaridadeConverter">
+                                <f:selectItem itemLabel="Selecione um nível de escolaridade" itemValue="" />
+                                <f:selectItems value="#{funcionarioBean.listaEscolaridades}" var="escolaridades" itemValue="#{escolaridades}" itemLabel="#{escolaridades.descricaoEscolaridade}"/>                                
+                            </p:selectOneMenu>   
+
+                        </p:panelGrid>
+
+                    </p:panel>
+
+                </p:tab>
+            </h:form>
+
+        </ui:define>           
+
+    </ui:composition>
+
+
+</html>
+
+
+

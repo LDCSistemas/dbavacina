@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Controle de Vacinação WEB - Acompanhe sua vacinas</title>
+        <link rel="stylesheet" type="text/css" href="utilitarios/Ui Lightness.css"/>
+    </h:head>
+
+    <h:body>
+
+
+        <div id="OpçõesIniciais" style="border-style: hidden;size:50px;margin-top: 0.5cm">
+
+            <center>
+
+                <p:panelGrid columns="11" id="panelOpcoesIniciais" style="border-width: 0;margin-top: 0.2cm">
+
+                    <p:graphicImage url="imagens/Brasil.png" width="40px" height="25px"/>
+                    <p:link title="Acesso a informação" value="Acesso a informação"/>  
+                    <p:link title="Campanha de Vacinação" value="Campanha de Vacinação" />  
+                    <p:link title="Políticas de Controle" value="Políticas de Controle"/>  
+                    <p:link title="Fale Conosco" value="Fale Conosco"/>  
+                    <p:link title="Participe" value="Participe"/>  
+                    <p:link title="Serviços" value="Serviços"/>  
+                    <p:link title="Comunicação" value="Comunicação"/>  
+                    <p:link title="Canais" value="Canais"/>  
+                    <p:inputText id="txPesquisa" value="Buscar..." style="margin-left: 1cm" onclick='this.value = "";'/>
+                    <p:commandButton id="btnOk" value="OK"/>
+                   
+                </p:panelGrid>
+
+            </center>
+
+        </div>
+
+        <div id="LogoPortalVacinação" style="border-style: hidden;height: 210px" >
+
+            <center>
+                <p:graphicImage url="imagens/Portal da Vacinação 5.png" width="992px" height="125px"/>
+
+                <p:panelGrid columns="9" id="panelOpcoesIniciais" style="border-width: 0;margin-top: 0.2cm">
+
+                    <p:link value="A importância da Vacinação"/>  
+                    <p:link value="Consultar minhas Vacinas"/>  
+                    <p:link value="Campanhas de vacinação"/>  
+                    <p:link value="Solicitação de atualização de vacinas"/>  
+                    <p:link value="Como prevenir doenças"/>    
+                    <p:link value="Vacinação Infantil"/>  
+                    <p:link value="Contato"/>  
+
+                </p:panelGrid>
+            </center>
+
+        </div>
+
+        <br />
+
+    </h:body>
+</html>
+
