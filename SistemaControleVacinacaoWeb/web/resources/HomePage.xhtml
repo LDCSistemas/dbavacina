@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:insert name="metadata"/>
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="utilitarios/estilos.css"/>
+        <title>Sistema de Controle de Vacinação WEB</title>
+    </h:head>
+
+    <h:body>
+
+        <p:layout fullPage="true">
+
+            <p:layoutUnit position="center">
+
+                <h:form> 
+                    <p:growl id="Mensagens" />
+
+                    <p:menubar style="margin-left: 6cm">
+
+                        <p:submenu label="Atendimento" icon="ui-icon-document">
+
+                            <p:menuitem value="Cadastro de Pessoas"  icon="CadastroPessoas" action="Pessoas.xhtml?faces-redirect=true"/>
+
+                            <p:menuitem value="Cadastro de Atendimentos" icon="ui-icon-contact" action="Atendimentos.xhtml?faces-redirect=true"/>
+
+                            <p:menuitem value="Exclusão de Atendimentos" icon="ui-icon-contact" action="ExclusaoAtendimento.xhtml?faces-redirect=true"/>
+
+                            <p:separator />
+
+                        </p:submenu>
+
+                        <p:submenu label="Estoque" icon="ui-icon-document">
+
+
+                            <p:menuitem value="Cadastro de Vacinas" icon="ui-icon-contact" action="Vacinas.xhtml?faces-redirect=true"/>
+
+                            <p:menuitem value="Entrada e saída de Vacinas" icon="ui-icon-contact" action="ControleEstoque.xhtml?faces-redirect=true"/>                            
+
+                            <p:menuitem value="Identificador de Etiquetas" icon="ui-icon-contact"/>
+
+                            <p:menuitem value="Cadastro de Lotes" icon="ui-icon-contact"/>
+
+                            <p:menuitem value="Cadastro de Fabricantes" icon="ui-icon-contact" action="Fabricantes.xhtml?faces-redirect=true"/>
+
+                            <p:menuitem value="Cadastro de Fornecedores" icon="ui-icon-contact" action="Fornecedores.xhtml?faces-redirect=true"/>                   
+
+                            <p:separator />
+
+                        </p:submenu>
+
+                        <p:submenu label="Administração" icon="ui-icon-document">                            
+
+                            <p:menuitem value="Cadastro de Funcionários" icon="ui-icon-contact" action="Funcionarios.xhtml?faces-redirect=true"/>
+                            
+                            <p:menuitem value="Cadastro de Usuários" icon="ui-icon-contact" action="PesquisaFuncionarioUsuario.xhtml?faces-redirect=true"/>
+
+                            <p:menuitem value="Manutenção de Acesso de usuários" icon="ui-icon-contact" action="ControleAcesso.xhtml?faces-redirect=true"/>
+
+                            <p:separator />
+
+                        </p:submenu>
+
+                        <p:submenu label="Consultas" icon="ui-icon-document">
+
+                            <p:menuitem value="Consulta de Pessoas" icon="ui-icon-contact" action="ConsultaPessoas.xhtml?faces-redirect=true" />
+
+                            <p:menuitem value="Consulta de Atendimentos" icon="ui-icon-contact" action="ConsultaAtendimentos.xhtml?faces-redirect=true"/>
+
+                            <p:menuitem value="Consulta de Funcionários" icon="ui-icon-contact" action="ConsultaFuncionarios.xhtml?faces-redirect=true"/>
+
+                            <p:menuitem value="Consulta de Logradouros" icon="ui-icon-contact" action="ConsultaLogradouroPorCep.xhtml?faces-redirect=true"/>
+
+                            <p:menuitem value="Consulta de Usuários" icon="ui-icon-contact" action="ConsultaUsuarios.xhtml?faces-redirect=true"/>
+
+                            <p:menuitem value="Consulta de Vacinas" icon="ui-icon-contact" action="ConsultaVacinas.xhtml?faces-redirect=true"/>
+
+                            <p:menuitem value="Entrada de Vacinas" icon="ui-icon-contact" action="ConsultaEntradaVacinas.xhtml?faces-redirect=true"/>
+
+                            <p:menuitem value="Saída de Vacinas" icon="ui-icon-contact"/>
+
+                            <p:menuitem value="Identificador de Etiquetas" icon="ui-icon-contact"/>
+
+                            <p:menuitem value="Consulta de Lotes" icon="ui-icon-contact"/>
+
+                            <p:menuitem value="Consulta de Fabricantes" icon="ui-icon-contact" action="ConsultaFabricantes.xhtml?faces-redirect=true"/>
+
+                            <p:menuitem value="Consulta de Fornecedores" icon="ui-icon-contact" action="ConsultaFornecedores.xhtml?faces-redirect=true"/>   
+
+                            <p:menuitem value="Consulta de Unidades de Saúde" icon="ui-icon-contact" action="ConultaUnidadesSaude.xhtml?faces-redirect=true"/>
+
+                            <p:menuitem value="Consulta de Bairros" icon="ui-icon-contact" action="ConsultaBairros.xhtml?faces-redirect=true"/>
+
+                            <p:menuitem value="Consulta de Logradouros" icon="ui-icon-contact" action="ConsultaLogradouros.xhtml?faces-redirect=true"/>
+
+                            <p:separator />
+
+                        </p:submenu> 
+
+                        <p:submenu label="Tabelas" icon="ui-icon-document">
+
+                            <p:menuitem value="Cadastro de Unidades de Saúde" icon="ui-icon-contact" action="UnidadesSaude.xhtml?faces-redirect=true"/>
+
+                            <p:menuitem value="Cadastro de Bairros" icon="ui-icon-contact" action="Bairros.xhtml?faces-redirect=true"/>
+
+                            <p:menuitem value="Cadastro de Logradouros" icon="ui-icon-contact" action="Logradouros.xhtml?faces-redirect=true"/>
+
+                            <p:menuitem value="Cadastro de Profissões" icon="ui-icon-contact" action="Profissoes.xhtml?faces-redirect=true"/>
+                            
+                            <p:menuitem value="Cadastro de Escolaridades" icon="ui-icon-contact" action="Escolaridades.xhtml?faces-redirect=true"/>
+                            <p:separator />
+
+                        </p:submenu>
+
+                        <p:submenu label="Relatórios" icon="ui-icon-document">
+
+                            <p:submenu label="Atendimentos" icon="ui-icon-contact">
+
+                                <p:menuitem value="Pessoas cadastradas por período" url="#" />
+
+                                <p:menuitem value="Atendimentos por período" url="#" />
+
+                            </p:submenu>
+
+                            <p:submenu label="Estoque" icon="ui-icon-contact">
+
+                                <p:menuitem value="Vacinas cadastradas por período" url="#" />
+
+                                <p:menuitem value="Entrada e saída de vacinas" url="#" />
+
+                                <p:menuitem value="Entrada de vacinas por Lote" url="#" />
+
+                                <p:menuitem value="Saída de vacinas por Lote" url="#" />
+
+                                <p:menuitem value="Entrada de vacinas por Fabricante" url="#" />
+
+                                <p:menuitem value="Saída de vacinas por Fabricante" url="#" />
+
+                                <p:menuitem value="Entrada de vacinas por Fornecedor" url="#" />
+
+                                <p:menuitem value="Saída de vacinas por Fornecedor" url="#" />
+
+                            </p:submenu>
+
+                            <p:submenu label="Usuários" icon="ui-icon-contact">
+
+                                <p:menuitem value="Usuários Cadastrados por período" url="#" />
+
+                                <p:menuitem value="Acesso do usuário por formulário" url="#" />
+
+                            </p:submenu>
+
+                            <p:submenu label="Tabelas" icon="ui-icon-contact">
+
+                                <p:menuitem value="Unidades de Saúde" url="#" />
+
+                                <p:menuitem value="Bairros" url="#" />
+
+                                <p:menuitem value="Logradouros" url="#" />
+
+                            </p:submenu>
+
+
+                            <p:separator />
+
+                        </p:submenu>
+
+                        <p:submenu label="Ajuda" icon="ui-icon-contact">                           
+
+                            <p:menuitem value="Sobre o Sistema de Controle de Vacinação WEB" url="#" /> 
+
+                        </p:submenu>
+
+
+                    </p:menubar>
+
+                </h:form>
+
+                <ui:insert name="Conteúdo da Página"> 
+
+
+                </ui:insert>
+
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south" header="Desenvolvido por LDC Sistemas">
+
+            </p:layoutUnit>
+        </p:layout>
+
+    </h:body>
+
+</html>
