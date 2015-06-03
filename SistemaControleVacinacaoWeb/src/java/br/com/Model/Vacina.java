@@ -41,8 +41,7 @@ public class Vacina implements Serializable {
     @Column(name = "CODIGO_VACINA")
     private Integer codigoVacina;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @NotNull(message = "A descrição da vacina deve ser informada")
     @Column(name = "NOME_VACINA")
     private String nomeVacina;
     @OneToMany(mappedBy = "codigoVacina")

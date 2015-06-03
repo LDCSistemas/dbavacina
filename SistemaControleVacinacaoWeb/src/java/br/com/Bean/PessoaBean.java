@@ -44,22 +44,22 @@ public class PessoaBean implements Serializable {
     public void insertPessoa() {
         pessoaDao().save(pessoa);
         Mensagens.MensagemSucesso("Cadastro atualizado com sucesso");
-        LimpaCidade();
+        limpaPessoa();
     }
 
     public void updatePessoa() {
         pessoaDao().update(pessoa);
         Mensagens.MensagemSucesso("Atualização efetuada com sucesso");
-        LimpaCidade();
+        limpaPessoa();
     }
 
     private void deletePessoa() {
         pessoaDao().remove(pessoa);
         Mensagens.MensagemSucesso("Pessoa excluída com sucesso");
-        LimpaCidade();
+        limpaPessoa();
     }
 
-    private String LimpaCidade() {
+    private String limpaPessoa() {
         pessoa = new Pessoa();
         return "/restrict/Pessoas.jsf";
     }

@@ -15,28 +15,28 @@
 
                     <p:panel id="panelBotoesVacina">
 
-                        <p:commandButton value="Novo"  style="margin-right: 0.3cm">  
-                            <p:graphicImage value="/icones/PNG-32/Add.png"/>  
-                        </p:commandButton>
+                        <p:commandButton value="Novo" actionListener="#{vacinaBean.limpaVacina}" 
+                                         style="margin-right: 0.3cm"
+                                         update="@form"/>
 
-                        <p:commandButton value="Pesquisar" ajax="false" style="margin-right: 0.3cm">  
-                            <p:graphicImage value="/icones/PNG-32/Search.png"/>  
+                        <p:commandButton value="Pesquisar"  style="margin-right: 0.3cm">  
+                            <p:graphicImage value="/resources/restrict/images/PNG-32/Search.png"/>  
                         </p:commandButton>  
 
-                        <p:commandButton value="Alterar" ajax="false" style="margin-right: 0.3cm">  
-                            <p:graphicImage value="/icones/PNG-32/Modify.png"/>  
+                        <p:commandButton value="Alterar"  style="margin-right: 0.3cm">  
+                            <p:graphicImage value="/resources/restrict/images/PNG-32/Modify.png"/>  
                         </p:commandButton>
 
-                        <p:commandButton value="Salvar" ajax="false" style="margin-right: 0.3cm">  
-                            <p:graphicImage value="/icones/PNG-32/Save.png"/>  
+                        <p:commandButton value="Salvar" icon="ui-icon ui-icon-disk"
+                                         action="#{vacinaBean.insertVacina}" style="margin-right: 0.3cm"
+                                         update="@form"/>
+
+                        <p:commandButton value="Excluir"  style="margin-right: 0.3cm">  
+                            <p:graphicImage value="/resources/restrict/images/PNG-32/Delete.png"/>  
                         </p:commandButton>
 
-                        <p:commandButton value="Excluir" ajax="false" style="margin-right: 0.3cm">  
-                            <p:graphicImage value="/icones/PNG-32/Delete.png"/>  
-                        </p:commandButton>
-
-                        <p:commandButton value="Sair" ajax="false" style="margin-right: 0.3cm">  
-                            <p:graphicImage value="/icones/PNG-32/Exit.png"/>  
+                        <p:commandButton value="Sair"  style="margin-right: 0.3cm">  
+                            <p:graphicImage value="/resources/restrict/images/PNG-32/Exit.png"/>  
                         </p:commandButton>
                     </p:panel>
 
@@ -47,16 +47,15 @@
                     </center>
 
                     <p:panel header= "Dados da Vacina" style="margin-top: 0.5cm">
-
-                        <p:messages />
+                        
 
                         <h:panelGrid columns="2" columnClasses="label, value">
 
                             <h:outputText value="Código da Vacina *" />
-                            <p:inputText  required="true" label="Código da Vacina" />
+                            <p:inputText  readonly="true" label="Código da Vacina" value="#{vacinaBean.vacina.codigoVacina}"/>
 
                             <h:outputText value="Nome da Vacina *" />
-                            <p:inputText required="true" label="Nome da Vacina"/>
+                            <p:inputText  label="Nome da Vacina" value="#{vacinaBean.vacina.nomeVacina}"/>
 
                         </h:panelGrid>
 
